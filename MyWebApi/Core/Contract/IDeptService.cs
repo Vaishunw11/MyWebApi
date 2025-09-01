@@ -10,7 +10,6 @@ namespace MyWebApi.Core.Contract
         Task<DeptListResponse<List<DeptDTO>>> GetAllDept();
 
         Task<DeptListResponse<bool>> DeleteDept(int Id);
-
     }
 }
 
