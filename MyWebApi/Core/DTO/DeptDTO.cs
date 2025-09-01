@@ -17,7 +17,7 @@ namespace MyWebApi.DTO
 
         public T? Data { get; set; }
 
-        public string? Message { get; set; }
+        public string? Message { get; set; }  
 
         public static DeptListResponse<T> Success(T data, string message = "Success")
         {
