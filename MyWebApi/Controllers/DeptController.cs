@@ -1,7 +1,6 @@
 ﻿using Authorization.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MyWebApi.Core.entity;
 using MyWebApi.Data.DAL.AppDB;
 using MyWebApi.DTO;
 using MyWebApi.Entity;
