@@ -9,7 +9,6 @@ namespace MyWebApi.Data.DAL.AppDB
         private readonly ApplicationDBContext _context;
         private readonly Deptmapping _mapper;
 
-
         public DeptRepository(ApplicationDBContext context, Deptmapping mapper)
         {
             _context = context;
@@ -22,17 +21,9 @@ namespace MyWebApi.Data.DAL.AppDB
             await _context.SaveChangesAsync();
             return dept.DepartmentID;
         }
-
-        //public async Task<Departments> AddDept(Departments department)
-        //{
-        //    _context.departments.Add(department);
-        //    await _context.SaveChangesAsync();
-        //    return department;
-        //}
-
+       
         public async Task<int> UpdateDept(Departments dept)
         {
-            // _context.departments.Update(dept);
             return await _context.SaveChangesAsync();
         }
 
@@ -40,8 +31,6 @@ namespace MyWebApi.Data.DAL.AppDB
         {
             var active = _context.departments.Where(x => x.IsActive == true);
             return Task.FromResult(active);
-
-            // return _context.department.Where(x => x.IsActive == true);
         }
 
         public async Task<bool> DeleteDept(Departments dept)
