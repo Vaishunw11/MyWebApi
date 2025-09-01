@@ -23,6 +23,5 @@ namespace MyWebApi.Core.DTO
         public EnumResponse Result { get; set; }
 
         public T? Data { get; set; }
-
     }
 }
