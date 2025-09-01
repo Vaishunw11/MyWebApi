@@ -1,11 +1,10 @@
-using Authorization.Service;
+using MyWebApi.Service;
 using Microsoft.EntityFrameworkCore;
 using MyWebApi.BI.Mapping;
 using MyWebApi.Core.Contract;
 using MyWebApi.Data.DAL.AppDB;
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

@@ -11,7 +11,6 @@ namespace MyWebApi.Core.Contract
 
         Task<DeptListResponse<bool>> DeleteDept(int Id);
 
-        Task<DeptListResponse<Departments>> CreateDepartmentAsync(Departments department);
     }
 }
 

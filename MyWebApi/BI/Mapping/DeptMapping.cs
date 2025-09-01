@@ -12,7 +12,6 @@ namespace MyWebApi.BI.Mapping
         {
             return new Departments
             {
-                DepartmentID = dto.DepartmentID,
                 DepartmentName = dto.DepartmentName,
                 IsActive = true
             };
