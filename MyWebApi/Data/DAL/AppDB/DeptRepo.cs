@@ -17,7 +17,7 @@ namespace MyWebApi.Data.DAL.AppDB
 
         public async Task<int> AddDept(Departments dept)
         {
-            _context.departments.Add(dept);
+            _context.Departments.Add(dept);
             await _context.SaveChangesAsync();
             return dept.DepartmentID;
         }
@@ -29,14 +29,14 @@ namespace MyWebApi.Data.DAL.AppDB
 
         public Task<IQueryable<Departments>> GetAllDept()
         {
-            var active = _context.departments.Where(x => x.IsActive == true);
+            var active = _context.Departments.Where(x => x.IsActive == true);
             return Task.FromResult(active);
         }
 
         public async Task<bool> DeleteDept(Departments dept)
         {
             dept.IsActive = false;
-            _context.departments.Update(dept);
+            _context.Departments.Update(dept);
             await _context.SaveChangesAsync();
             return true;
         }

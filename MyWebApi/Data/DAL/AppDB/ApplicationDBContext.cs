@@ -1,6 +1,8 @@
-﻿using MyWebApi.Core.entity;
+﻿using Microsoft.EntityFrameworkCore;
+using MyWebApi.Core.entity;
+using MyWebApi.Entity;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+
 namespace MyWebApi.Data.DAL.AppDB
 {
     public class ApplicationDBContext : DbContext
@@ -10,8 +12,7 @@ namespace MyWebApi.Data.DAL.AppDB
         {
         }
 
-        public DbSet<Users> user { get; set; }
-
-        public DbSet<Departments> departments { get; set; }
+        public DbSet<Users> Users { get; set; }
+        public DbSet<Departments> Departments { get; set; }
     }
 }

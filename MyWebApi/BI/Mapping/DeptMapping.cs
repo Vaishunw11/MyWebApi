@@ -1,4 +1,7 @@
-﻿using MyWebApi.DTO;
+﻿using MyWebApi.BI.Mapping;
+using MyWebApi.Core.Contract;
+using MyWebApi.Core.entity;
+using MyWebApi.DTO;
 using MyWebApi.Entity;
 
 namespace MyWebApi.BI.Mapping
