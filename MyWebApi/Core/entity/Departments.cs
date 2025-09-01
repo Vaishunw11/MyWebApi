@@ -14,7 +14,7 @@ namespace MyWebApi.Entity
         [Required]
         public string? DepartmentName { get; set; }
 
-        public bool IsActive { get; set; } = true;
+        public bool IsActive { get; set; } = false;
 
         //        [JsonIgnore]
         //        public Users? user { get; set; }

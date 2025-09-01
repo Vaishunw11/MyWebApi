@@ -28,7 +28,6 @@ namespace MyWebApi.Data.DAL.AppDB
             return await _context.SaveChangesAsync();
         }
 
-
         public Task<IQueryable<Departments>> GetAllDept()
         {
             var active = _context.Departments.Where(x => x.IsActive == true);
