@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MyWebApi.BI.Mapping;
+﻿using MyWebApi.BI.Mapping;
 using MyWebApi.Core.Contract;
 using MyWebApi.Core.entity;
 

@@ -11,5 +11,7 @@ namespace MyWebApi.Data.DAL.AppDB
         }
 
         public DbSet<Users> user { get; set; }
+
+        public DbSet<Departments> departments { get; set; }
     }
 }
