@@ -15,7 +15,7 @@ namespace MyWebApi.Core.DTO
 
         public string? Role { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 
     public class UserListResponse<T>
