@@ -25,7 +25,7 @@ namespace MyWebApi.Controllers
         public IActionResult AddDepartment(Departments dept)
         {
             var userId = int.Parse(User.Claims.First(c => c.Type == "UserId").Value);
-            dept.CreatedById = userId;   // set logged-in user id
+            dept.CreatedById = userId;   
             _context.Departments.Add(dept);
             _context.SaveChanges();
             return Ok(dept);
@@ -39,11 +39,9 @@ namespace MyWebApi.Controllers
             var depts = _context.Departments
                                 .Where(d => d.CreatedById == userId)
                                 .ToList();
-
             return Ok(depts);
         }
-
-        [Authorize]
+       
         [HttpDelete]
         public async Task<IActionResult> DeleteDept(int id)
         {
@@ -53,25 +51,6 @@ namespace MyWebApi.Controllers
                 return Ok(result);
             else
                 return NotFound(result);
-        }
-
-        [Authorize]
-        [HttpGet("my-departments")]
-        public IActionResult GetMyDepartments()
-        {
-            var userId = int.Parse(User.Claims.First(c => c.Type == "UserId").Value);
-            var depts = _context.Departments.Where(d => d.CreatedById == userId && d.IsActive).ToList();
-            return Ok(depts);
-        }
-
-        [Authorize]
-        [HttpPost("create")]
-        public async Task<DeptListResponse<Departments>> CreateDepartment([FromBody] Departments dept)
-        {
-            var userId = int.Parse(User.Claims.First(c => c.Type == "UserId").Value);
-            dept.CreatedById = userId;
-
-            return await _deptservice.CreateDepartmentAsync(dept);
         }
     }
 }
