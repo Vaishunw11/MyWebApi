@@ -1,10 +1,4 @@
-﻿using Authorization.BI.MAP;
-using Authorization.Core.Contract;
-using Authorization.DTO;
-using Authorization.Entity;
-using Authorization.Enum;
-using Authorization.Service;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyWebApi.BI.Mapping;
 using MyWebApi.Core.Contract;
