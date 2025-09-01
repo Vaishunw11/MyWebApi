@@ -16,9 +16,7 @@ namespace MyWebApi.Entity
 
         public bool IsActive { get; set; } = true;
 
-        //public int CreatedById { get; set; }
-
-        [JsonIgnore]
-        public Users? user { get; set; }
+        //        [JsonIgnore]
+        //        public Users? user { get; set; }
     }
 }

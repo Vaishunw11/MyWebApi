@@ -21,11 +21,13 @@ namespace MyWebApi.Data.DAL.AppDB
             await _context.SaveChangesAsync();
             return dept.DepartmentID;
         }
-       
+
         public async Task<int> UpdateDept(Departments dept)
         {
+            _context.Departments.Update(dept);
             return await _context.SaveChangesAsync();
         }
+
 
         public Task<IQueryable<Departments>> GetAllDept()
         {

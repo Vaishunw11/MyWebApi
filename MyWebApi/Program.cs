@@ -1,4 +1,4 @@
-using Authorization.Service;
+using MyWebApi.Service;
 using Microsoft.EntityFrameworkCore;
 using MyWebApi.BI.Mapping;
 using MyWebApi.Core.Contract;

@@ -1,9 +1,6 @@
-﻿using Authorization.Service;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using MyWebApi.Data.DAL.AppDB;
+﻿using Microsoft.AspNetCore.Mvc;
+using MyWebApi.Core.Contract;
 using MyWebApi.DTO;
-using MyWebApi.Entity;
 using MyWebApi.Enum;
 
 namespace MyWebApi.Controllers
@@ -12,45 +9,29 @@ namespace MyWebApi.Controllers
     [Route("api/[controller]")]
     public class DepartmentController : ControllerBase
     {
-        private readonly ApplicationDBContext _context;
-        private readonly DeptService _deptservice;
+        private readonly IDeptService _deptservice;
 
-        public DepartmentController(ApplicationDBContext context, DeptService deptservice)
+        public DepartmentController(IDeptService deptservice)
         {
-            _context = context;
             _deptservice = deptservice;
         }
 
-        [HttpPost]
-        public IActionResult AddDepartment(DeptDTO deptdto)
+        [HttpPost("SaveOrUpdateDepartment")]
+        public async Task<DeptListResponse<int>> SaveOrUpdateDepartment([FromBody] DeptDTO deptdto)
         {
-            var userId = int.Parse(User.Claims.First(c => c.Type == "UserId").Value);
-           // dept.CreatedById = userId;   
-            //_context.Departments.Add(deptdto);
-            _context.SaveChanges();
-            return Ok();
+            return await _deptservice.AddorUpdateDept(deptdto.DepartmentID, deptdto);
         }
 
-        [HttpGet]
-        public IActionResult GetDepartments()
+        [HttpGet("GetAllDepartments")]
+        public async Task<DeptListResponse<List<DeptDTO>>> GetAllDepartments()
         {
-            var userId = int.Parse(User.Claims.First(c => c.Type == "UserId").Value);
-
-            //var depts = _context.Departments
-            //                    .Where(d => d.CreatedById == userId)
-            //                    .ToList();
-            return Ok();
+            return await _deptservice.GetAllDept();
         }
-       
-        [HttpDelete]
-        public async Task<IActionResult> DeleteDept(int id)
-        {
-            var result = await _deptservice.DeleteDept(id);
 
-            if (result.Result == EnumResponse.Success)
-                return Ok(result);
-            else
-                return NotFound(result);
+        [HttpDelete("DeleteDepartment/{id}")]
+        public async Task<DeptListResponse<bool>> DeleteDepartment(int id)
+        {
+            return await _deptservice.DeleteDept(id);
         }
     }
 }

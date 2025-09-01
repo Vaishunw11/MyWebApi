@@ -103,7 +103,6 @@ namespace MyWebApi.BI.Mapping
             }
             return response;
         }
-
     }
 }
 
