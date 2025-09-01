@@ -72,7 +72,6 @@ namespace Authorization.Service
                 }).ToList();
                 response.Result = data.Any() ? EnumResponse.Success : EnumResponse.NotFound;
                 response.Data = dtoList;
-
             }
             catch (Exception ex)
             {
@@ -108,16 +107,6 @@ namespace Authorization.Service
                 Console.WriteLine("Exception: " + ex.Message);
             }
             return response;
-        }
-        
-        public async Task<DeptListResponse<Departments>> CreateDepartmentAsync(Departments department)
-        {
-            if (department == null)
-                return DeptListResponse<Departments>.Fail("Department cannot be null");
-
-            await _repository.AddDept(department);
-
-            return DeptListResponse<Departments>.Success(department, "Department created successfully");
         }
     }
 }

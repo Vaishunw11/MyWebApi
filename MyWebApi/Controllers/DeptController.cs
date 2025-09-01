@@ -22,13 +22,13 @@ namespace MyWebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddDepartment(Departments dept)
+        public IActionResult AddDepartment(DeptDTO deptdto)
         {
             var userId = int.Parse(User.Claims.First(c => c.Type == "UserId").Value);
-            dept.CreatedById = userId;   
-            _context.Departments.Add(dept);
+           // dept.CreatedById = userId;   
+            //_context.Departments.Add(deptdto);
             _context.SaveChanges();
-            return Ok(dept);
+            return Ok();
         }
 
         [HttpGet]
@@ -36,10 +36,10 @@ namespace MyWebApi.Controllers
         {
             var userId = int.Parse(User.Claims.First(c => c.Type == "UserId").Value);
 
-            var depts = _context.Departments
-                                .Where(d => d.CreatedById == userId)
-                                .ToList();
-            return Ok(depts);
+            //var depts = _context.Departments
+            //                    .Where(d => d.CreatedById == userId)
+            //                    .ToList();
+            return Ok();
         }
        
         [HttpDelete]
