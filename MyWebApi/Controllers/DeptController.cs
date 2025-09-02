@@ -16,7 +16,7 @@ namespace MyWebApi.Controllers
             _deptservice = deptservice;
         }
 
-        [HttpPost("SaveOrUpdateDepartment")]
+        [HttpPost("SaveOrUpdateDepartments")]
         public async Task<DeptListResponse<int>> SaveOrUpdateDepartment([FromBody] DeptDTO deptdto)
         {
             return await _deptservice.AddorUpdateDept(deptdto.DepartmentID, deptdto);
@@ -28,7 +28,7 @@ namespace MyWebApi.Controllers
             return await _deptservice.GetAllDept();
         }
 
-        [HttpDelete("DeleteDepartment/{id}")]
+        [HttpDelete("DeleteDepartments{id}")]
         public async Task<DeptListResponse<bool>> DeleteDepartment(int id)
         {
             return await _deptservice.DeleteDept(id);
